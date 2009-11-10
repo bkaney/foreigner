@@ -15,7 +15,6 @@ module ActiveRecord
   
   Base.class_eval do
     if %w(MySQL PostgreSQL).map(&:downcase).include? connection_pool.spec.config[:adapter].downcase
-      debugger
       require "foreigner/connection_adapters/#{connection_pool.spec.config[:adapter].downcase}_adapter"
     end
   end
